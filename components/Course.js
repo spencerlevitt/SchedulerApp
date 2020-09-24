@@ -2,7 +2,7 @@ import React from "react";
 import { StyleSheet, Text, TouchableOpacity } from "react-native";
 import { getCourseNumber } from "../utils/course";
 
-const Course = ({ course, isSelected, select, isDisabled }) => (
+const Course = ({ course, isSelected, select, isDisabled, view }) => (
   <TouchableOpacity
     style={
       styles[
@@ -16,6 +16,7 @@ const Course = ({ course, isSelected, select, isDisabled }) => (
     onPress={() => {
       if (!isDisabled) select(course);
     }}
+    onLongPress={() => view(course)}
   >
     <Text style={styles.courseText}>
       {`CS ${getCourseNumber(course)}\n${course.meets}`}
